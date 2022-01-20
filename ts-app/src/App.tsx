@@ -1,5 +1,6 @@
 import React from 'react';
-import OrderBox from './OrderBox'; 
+import OrderBox from './OrderBox';
+import ResultBox from './ResultBox';
 import './App.css';
 
 function App() {
@@ -14,8 +15,7 @@ function App() {
       <div id="content" className="clearfix">
         <div className="inner_container">
           <OrderBox/>
-          <div id="result_area">
-          </div>
+          <ResultBox/>
         </div>
       </div>
     </div>

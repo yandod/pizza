@@ -129,10 +129,16 @@ ul, li {
     border-bottom: 1px solid #aaa;
 }
 #result_area dd {
-    float: left;
+    margin-left: 165px;
     width: 165px;
     padding: 5px 10px 5px 0;
     text-align: right;
     font-size: 14px;
     border-bottom: 1px solid #aaa;
+}
+
+#banner_box {
+    height: 100px;
+    padding:20px;
+    text-align:center;
 }
