@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 
 class ResultBox extends React.Component {
     render(): React.ReactNode {
@@ -18,13 +19,13 @@ class ResultBox extends React.Component {
                     <dt>人数</dt>
                     <dd>{number}名</dd>
                     <dt>ビール(350ml缶)</dt>
-                    <dd>{beer}本 (約{subtotal_beer}円)</dd>
+                    <dd>{beer}本 (約 <NumberFormat value={subtotal_beer} displayType={'text'} thousandSeparator={true}/>円)</dd>
                     <dt>ピザ(Lサイズ) {brand}</dt>
-                    <dd>{pizza}枚 (約{subtotal_pizza}円)</dd>
+                    <dd>{pizza}枚 (約<NumberFormat value={subtotal_pizza} displayType={'text'} thousandSeparator={true}/>円)</dd>
                     <dt>合計金額</dt>
-                    <dd>{total}円</dd>
+                    <dd><NumberFormat value={total} displayType={'text'} thousandSeparator={true}/>円</dd>
                     <dt>一人あたりの金額</dt>
-                    <dd>{price}円</dd>
+                    <dd><NumberFormat value={price} displayType={'text'} thousandSeparator={true}/>円</dd>
                 </dl>
                 <p id="banner_box">
                     <a href="https://click.linksynergy.com/fs-bin/click?id=NUwEQ5D8uZg&offerid=761398.13&type=4&subid=0"><img alt="ピザハットオンライン" src="https://static.pizzahut.jp/jp/content/234_60.jpg"/></a>
