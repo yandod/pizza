@@ -3,7 +3,7 @@ import NumberFormat from 'react-number-format';
 
 interface ResultBoxProps {
     number?: number;
-    brand?: "domino" | "pizzala" | "pizzahut";
+    brand?: string;
     beer?: number;
     pizza?: number;
     total?: number;
@@ -23,7 +23,7 @@ class ResultBox extends React.Component<ResultBoxProps> {
         subtotal_beer: 3000,
         subtotal_pizza: 17000
     }
-    
+
     render(): React.ReactNode {
         return (
             <div id="result_area">
