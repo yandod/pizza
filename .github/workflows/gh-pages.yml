@@ -1,4 +1,4 @@
-name: NodeJS with Gulp
+name: build site and push to gh-pages
 
 on:
   push:
@@ -31,4 +31,4 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+        publish_dir: ./ts-app/build
