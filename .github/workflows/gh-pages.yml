@@ -18,7 +18,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 8.1
+        node-version: 17
 
     - name: Build
       run: |
