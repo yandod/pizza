@@ -1,6 +1,7 @@
 import React from 'react';
 import OrderBox from './OrderBox';
 import ResultBox from './ResultBox';
+import Logic from './Logic';
 import './App.css';
 
 interface AppProps {
@@ -8,7 +9,18 @@ interface AppProps {
   brand: string;
 }
 
-class App extends React.Component<AppProps, AppProps> {
+interface AppStates {
+  number: number;
+  brand: string;
+  beer: number;
+  pizza: number;
+  subtotal_beer: number;
+  subtotal_pizza: number;
+  total: number;
+  price: number;
+}
+
+class App extends React.Component<AppProps, AppStates> {
 
   static defaultProps: AppProps = {
     number: 10,
@@ -19,17 +31,35 @@ class App extends React.Component<AppProps, AppProps> {
     super(props);
     this.handleNumberChange = this.handleNumberChange.bind(this);
     this.handleBrandChange = this.handleBrandChange.bind(this);
-    this.state = {number: this.props.number, brand: this.props.brand};
+
+    const result = Logic.calculate(this.props.number, this.props.brand);
+
+    this.state = {
+      number: this.props.number,
+      brand: this.props.brand,
+      beer: result.beer,
+      pizza: result.pizza,
+      subtotal_beer: result.subtotal_beer,
+      subtotal_pizza: result.subtotal_pizza,
+      total: result.total,
+      price: result.price
+    };
   }
   
   handleNumberChange(e: React.ChangeEvent<HTMLInputElement>) {
     var number = Number(e.target.value);
     this.setState({number: number});
+
+    const result = Logic.calculate(number, this.state.brand);
+    this.setState(result);
   }
 
   handleBrandChange(e: React.ChangeEvent<HTMLInputElement>) {
     var brand = e.target.value;
     this.setState({brand: brand});
+
+    const result = Logic.calculate(this.state.number, brand);
+    this.setState(result);
   }
 
   render(): React.ReactNode {
@@ -50,7 +80,13 @@ class App extends React.Component<AppProps, AppProps> {
               onBrandChange={this.handleBrandChange} />
             <ResultBox
               number={this.state.number}
-              brand={this.state.brand} />
+              brand={this.state.brand}
+              beer={this.state.beer}
+              pizza={this.state.pizza}
+              subtotal_beer={this.state.subtotal_beer}
+              subtotal_pizza={this.state.subtotal_pizza}
+              total={this.state.total}
+              price={this.state.price}/>
           </div>
         </div>
       </div>

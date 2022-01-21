@@ -14,14 +14,14 @@ interface ResultBoxProps {
 
 class ResultBox extends React.Component<ResultBoxProps> {
     static defaultProps: ResultBoxProps = {
-        number: 10,
+        number: 0,
         brand: 'domino',
-        beer: 8,
-        pizza: 2,
-        total: 20000,
-        price: 2000,
-        subtotal_beer: 3000,
-        subtotal_pizza: 17000
+        beer: 0,
+        pizza: 0,
+        total: 0,
+        price: 0,
+        subtotal_beer: 0,
+        subtotal_pizza: 0
     }
 
     render(): React.ReactNode {
