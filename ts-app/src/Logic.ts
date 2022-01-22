@@ -10,8 +10,8 @@ interface PizzaResult {
 class Logic {
     static calculate (peopleCount: number, brandName: string) {
 
-        var base_price: number = 2550;
-        var base_person: number = 3.06;
+        let base_price = 2550;
+        let base_person = 3.06;
 
         switch (brandName) {
             case 'pizzala':

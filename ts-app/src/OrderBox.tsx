@@ -1,18 +1,16 @@
 import React from 'react';
 
 interface OrderBoxProps {
-    q?: number;
-    b?: string;
-    onNumberChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onBrandChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    q: number;
+    b: string;
+    onNumberChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBrandChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 class OrderBox extends React.Component<OrderBoxProps> {
     static defaultProps: OrderBoxProps = {
         q: 10,
         b: 'domino',
-        onNumberChange: (e) => {},
-        onBrandChange: (e) => {},
     }
 
     constructor(props: OrderBoxProps) {
@@ -22,11 +20,11 @@ class OrderBox extends React.Component<OrderBoxProps> {
     }
 
     handleNumberChange(e: React.ChangeEvent<HTMLInputElement>) {
-        this.props.onNumberChange(e);
+        this.props.onNumberChange?.(e);
     }
 
     handleBrandChange(e: React.ChangeEvent<HTMLInputElement>) {
-        this.props.onBrandChange(e);
+        this.props.onBrandChange?.(e);
     }
 
     render(): React.ReactNode {

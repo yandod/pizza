@@ -47,7 +47,7 @@ class App extends React.Component<AppProps, AppStates> {
   }
   
   handleNumberChange(e: React.ChangeEvent<HTMLInputElement>) {
-    var number = Number(e.target.value);
+    const number = Number(e.target.value);
     this.setState({number: number});
 
     const result = Logic.calculate(number, this.state.brand);
@@ -55,7 +55,7 @@ class App extends React.Component<AppProps, AppStates> {
   }
 
   handleBrandChange(e: React.ChangeEvent<HTMLInputElement>) {
-    var brand = e.target.value;
+    const brand = e.target.value;
     this.setState({brand: brand});
 
     const result = Logic.calculate(this.state.number, brand);
