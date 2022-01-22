@@ -45,10 +45,10 @@ class App extends React.Component<AppProps, AppStates> {
       price: result.price
     };
   }
-  
+
   handleNumberChange(e: React.ChangeEvent<HTMLInputElement>) {
     const number = Number(e.target.value);
-    this.setState({number: number});
+    this.setState({ number });
 
     const result = Logic.calculate(number, this.state.brand);
     this.setState(result);
@@ -56,7 +56,7 @@ class App extends React.Component<AppProps, AppStates> {
 
   handleBrandChange(e: React.ChangeEvent<HTMLInputElement>) {
     const brand = e.target.value;
-    this.setState({brand: brand});
+    this.setState({ brand });
 
     const result = Logic.calculate(this.state.number, brand);
     this.setState(result);
